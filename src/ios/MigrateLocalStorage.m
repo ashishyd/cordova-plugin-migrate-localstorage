@@ -51,7 +51,7 @@
     NSLog(@"original target is %@", target);
 #endif
 
-    target = [target stringByAppendingPathComponent:@"WebsiteData/LocalStorage/ionic_localhost_0.localstorage"];
+    target = [target stringByAppendingPathComponent:@"WebsiteData/LocalStorage/ionic_pace_0.localstorage"];
     NSLog(@"modified target is %@", target);
 
     // Only copy data if no existing localstorage data exists yet for wkwebview
@@ -63,7 +63,7 @@
     }
     
     // for using hostname in config.xml, local storage path changed
-    NSString* target2 = [appLibraryFolder stringByAppendingPathComponent:@"WebsiteData/LocalStorage/ionic_app.topo.cc_0.localstorage"];
+    NSString* target2 = [appLibraryFolder stringByAppendingPathComponent:@"WebsiteData/LocalStorage/ionic_pace.topo.cc_0.localstorage"];
     NSLog(@"modified target2 is %@", target2);
     // Only copy data if no existing localstorage data exists yet for hostname
     if (![[NSFileManager defaultManager] fileExistsAtPath:target2]) {
