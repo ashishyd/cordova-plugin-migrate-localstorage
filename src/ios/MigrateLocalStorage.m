@@ -40,6 +40,7 @@
     }
 
     original = [original stringByAppendingPathComponent:@"file__0.localstorage"];
+    NSLog(@"original path is %@", original);
 
     NSString* target = [[NSString alloc] initWithString: [appLibraryFolder stringByAppendingPathComponent:@"WebKit"]];
 
@@ -47,9 +48,11 @@
     // the simulutor squeezes the bundle id into the path
     NSString* bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
     target = [target stringByAppendingPathComponent:bundleIdentifier];
+    NSLog(@"original target is %@", target);
 #endif
 
-    target = [target stringByAppendingPathComponent:@"WebsiteData/LocalStorage/httpsionic_localhost_0.localstorage"];
+    target = [target stringByAppendingPathComponent:@"WebsiteData/LocalStorage/ionic_localhost_0.localstorage"];
+    NSLog(@"modified target is %@", target);
 
     // Only copy data if no existing localstorage data exists yet for wkwebview
     if (![[NSFileManager defaultManager] fileExistsAtPath:target]) {
@@ -60,7 +63,8 @@
     }
     
     // for using hostname in config.xml, local storage path changed
-    NSString* target2 = [appLibraryFolder stringByAppendingPathComponent:@"WebKit/WebsiteData/LocalStorage/httpsionic_app.topo.cc_0.localstorage"];
+    NSString* target2 = [appLibraryFolder stringByAppendingPathComponent:@"WebsiteData/LocalStorage/ionic_app.topo.cc_0.localstorage"];
+    NSLog(@"modified target2 is %@", target2);
     // Only copy data if no existing localstorage data exists yet for hostname
     if (![[NSFileManager defaultManager] fileExistsAtPath:target2]) {
         NSLog(@"No existing localstorage data found for hostname. Migrating data from normal wkwebview");
